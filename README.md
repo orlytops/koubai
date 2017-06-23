@@ -20,7 +20,7 @@ or Maven:
 </dependency>
 ```
 
-How do I use Kubai?
+How do I use Koubai?
 -------------------
 Easy as 1-2-3.
 
