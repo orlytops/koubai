@@ -1,7 +1,7 @@
 Koubai
 =======
 
-An android library for coloring google maps Polylines.
+An android library for coloring Google Maps Polylines.
 
 
 
