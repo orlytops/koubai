@@ -1,7 +1,8 @@
 Koubai
 =======
+[ ![Download](https://api.bintray.com/packages/orlytops/daidaiiro/koubai/images/download.svg) ](https://bintray.com/orlytops/daidaiiro/koubai/_latestVersion)
 
-An android library for coloring Google Maps Polylines.
+An android library for coloring google maps Polylines.
 
 
 
@@ -20,9 +21,9 @@ or Maven:
 </dependency>
 ```
 
-How do I use Koubai?
+How do I use Kubai?
 -------------------
-Easy as 1-2-3.
+Simple as 1-2-3.
 
 ```java
 Kubai kubai = new Kubai(googleMap, points, Color.RED, Color.GREEN);
@@ -33,7 +34,7 @@ kubai.drawGradient();
 License
 --------
 
-    Copyright 2017 Orlando Yanson Jr.
+    Copyright 2013 Square, Inc.
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
