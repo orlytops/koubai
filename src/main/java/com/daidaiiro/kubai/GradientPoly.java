@@ -18,10 +18,26 @@ public class GradientPoly {
 
   private GoogleMap googleMap;
   private String    points;
+  private int       startColor;
+  private int       endColor;
+  private int       startColorR;
+  private int       starColorG;
+  private int       starColorB;
+  private int       endColorR;
+  private int       endColorG;
+  private int       endColorB;
 
-  public GradientPoly(GoogleMap googleMap, String points) {
+  public GradientPoly(GoogleMap googleMap, String points, int startColor, int endColor) {
     this.googleMap = googleMap;
     this.points = points;
+    this.startColor = startColor;
+    this.endColor = endColor;
+    this.startColorR = Color.red(startColor);
+    this.starColorG = Color.green(startColor);
+    this.starColorB = Color.blue(startColor);
+    this.endColorR = Color.red(endColor);
+    this.endColorG = Color.blue(endColor);
+    this.endColorB = Color.green(endColor);
   }
 
   public void drawGradient() {
@@ -32,13 +48,13 @@ public class GradientPoly {
     List<LatLng> list = decodePoly(points);
     int size = list.size() - 1;
 
-    for (int z = 0; z < size; z++) {
-      LatLng src = list.get(z);
-      LatLng dest = list.get(z + 1);
+    for (int i = 0; i < size; i++) {
+      LatLng src = list.get(i);
+      LatLng dest = list.get(i + 1);
 
-      int red = (int) ((float) 255 - (((float) (255 - 79) / size) * (float) z));
-      int green = (int) ((float) 28 + (((float) (212 - 28) / size) * (float) z));
-      int blue = (int) ((float) 93 - ((float) (93 / size) * (float) z));
+      int red = getRGB(size, i, startColorR, endColorR);
+      int green = getRGB(size, i, starColorG, endColorG);
+      int blue = getRGB(size, i, starColorB, starColorB);
 
       line = googleMap.addPolyline(new PolylineOptions()
           .add(new LatLng(src.latitude, src.longitude),
@@ -49,6 +65,18 @@ public class GradientPoly {
       polylines.add(line);
     }
 
+  }
+
+  private int getRGB(int size, int position, int startRGB, int endRGB) {
+    int color = startRGB;
+    float ment = (((float) (startRGB - endRGB) / size) * (float) position);
+
+    if (startRGB > endColorR) {
+      color = (int) ((float) startRGB - ment);
+    } else if (startRGB < endRGB) {
+      color = (int) ((float) endRGB + ment);
+    }
+    return color;
   }
 
   private List<LatLng> decodePoly(String encoded) {
