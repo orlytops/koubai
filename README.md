@@ -22,7 +22,7 @@ or Maven:
 
 How do I use Kubai?
 -------------------
-Simple as 1-2-3.
+Easy as 1-2-3.
 
 ```java
 Kubai kubai = new Kubai(googleMap, points, Color.RED, Color.GREEN);
