@@ -14,7 +14,7 @@ import java.util.List;
  * Created by orly on 6/23/17.
  */
 
-public class GradientPoly {
+public class Kubai {
 
   private GoogleMap googleMap;
   private String    points;
@@ -27,7 +27,7 @@ public class GradientPoly {
   private int       endColorG;
   private int       endColorB;
 
-  public GradientPoly(GoogleMap googleMap, String points, int startColor, int endColor) {
+  public Kubai(GoogleMap googleMap, String points, int startColor, int endColor) {
     this.googleMap = googleMap;
     this.points = points;
     this.startColor = startColor;
