@@ -20,6 +20,16 @@ or Maven:
 </dependency>
 ```
 
+How do I use Kubai?
+-------------------
+Simple as 1-2-3.
+
+```java
+Kubai kubai = new Kubai(googleMap, points, Color.RED, Color.GREEN);
+kubai.drawGradient();
+```
+
+
 License
 --------
 
@@ -36,4 +46,3 @@ License
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-
