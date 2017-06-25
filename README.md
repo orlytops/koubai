@@ -1,7 +1,6 @@
 Koubai
 =======
-[ ![Download](https://api.bintray.com/packages/orlytops/daidaiiro/koubai/images/download.svg) ](https://bintray.com/orlytops/daidaiiro/koubai/_latestVersion) [![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0) [![Build Status](https://travis-ci.org/dwyl/esta.svg?branch=master)](https://travis-ci.org/dwyl/esta)
-
+[ ![Download](https://api.bintray.com/packages/orlytops/daidaiiro/koubai/images/download.svg) ](https://bintray.com/orlytops/daidaiiro/koubai/_latestVersion) [![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0) [![Build Status](https://travis-ci.org/orlytops/koubai.svg?branch=master)](https://travis-ci.org/orlytops/koubai)
 An android library for coloring google maps Polylines.
 
 
