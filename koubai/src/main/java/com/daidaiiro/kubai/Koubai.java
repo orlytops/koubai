@@ -1,4 +1,4 @@
-package com.daidaiiro.kubai;
+package com.oflander.myrtilus.utils;
 
 import android.graphics.Color;
 
@@ -27,44 +27,20 @@ public class Koubai {
   private int       endColorG;
   private int       endColorB;
 
-  public Koubai(GoogleMap googleMap, String points, int startColor, int endColor) {
-    this.googleMap = googleMap;
-    this.points = points;
-    this.startColor = startColor;
-    this.endColor = endColor;
-    this.startColorR = Color.red(startColor);
-    this.starColorG = Color.green(startColor);
-    this.starColorB = Color.blue(startColor);
-    this.endColorR = Color.red(endColor);
-    this.endColorG = Color.green(endColor);
-    this.endColorB = Color.blue(endColor);
+  public Koubai(KoubaiComposer koubaiComposer) {
+    googleMap = koubaiComposer.googleMap;
+    points = koubaiComposer.points;
+    startColorR = koubaiComposer.startColorR;
+    starColorG = koubaiComposer.starColorG;
+    starColorB = koubaiComposer.starColorB;
+    endColorR = koubaiComposer.endColorR;
+    endColorG = koubaiComposer.endColorG;
+    endColorB = koubaiComposer.endColorB;
+
   }
 
-  public void drawGradient() {
-
-    Polyline line;
-    List<Polyline> polylines = new ArrayList<Polyline>();
-
-    List<LatLng> list = decodePoly(points);
-    int size = list.size() - 1;
-
-    for (int i = 0; i < size; i++) {
-      LatLng src = list.get(i);
-      LatLng dest = list.get(i + 1);
-
-      int red = getRGB(size, i, startColorR, endColorR);
-      int green = getRGB(size, i, starColorG, endColorG);
-      int blue = getRGB(size, i, starColorB, starColorB);
-
-      line = googleMap.addPolyline(new PolylineOptions()
-          .add(new LatLng(src.latitude, src.longitude),
-              new LatLng(dest.latitude, dest.longitude))
-          .width(9)
-          .color(Color.rgb(red, green, blue))
-          .geodesic(true));
-      polylines.add(line);
-    }
-
+  public static KoubaiComposer with(GoogleMap googleMap) {
+    return new KoubaiComposer(googleMap);
   }
 
   private int getRGB(int size, int position, int startRGB, int endRGB) {
@@ -74,7 +50,8 @@ public class Koubai {
     if (startRGB > endColorR) {
       color = (int) ((float) startRGB - ment);
     } else if (startRGB < endRGB) {
-      color = (int) ((float) endRGB + ment);
+      ment = (((float) (endRGB - startRGB) / size) * (float) position);
+      color = (int) ((float) startRGB + ment);
     }
     return color;
   }
@@ -111,6 +88,75 @@ public class Koubai {
     }
 
     return poly;
+  }
+
+
+  public static final class KoubaiComposer {
+
+    private GoogleMap googleMap;
+    private String    points;
+    private int       startColorR;
+    private int       starColorG;
+    private int       starColorB;
+    private int       endColorR;
+    private int       endColorG;
+    private int       endColorB;
+
+    public KoubaiComposer(GoogleMap googleMap) {
+      this.googleMap = googleMap;
+    }
+
+    public KoubaiComposer points(String points) {
+      this.points = points;
+      return this;
+    }
+
+    public KoubaiComposer startColor(int startColor) {
+      this.startColorR = Color.red(startColor);
+      this.starColorG = Color.green(startColor);
+      this.starColorB = Color.blue(startColor);
+      return this;
+    }
+
+    public KoubaiComposer endColor(int endColor) {
+      this.endColorR = Color.red(endColor);
+      this.endColorG = Color.green(endColor);
+      this.endColorB = Color.blue(endColor);
+      return this;
+    }
+
+    public Koubai draw() {
+      Koubai koubai = new Koubai(this);
+      koubai.drawLines();
+      return koubai;
+    }
+
+  }
+
+
+  private void drawLines() {
+    Polyline line;
+    List<Polyline> polylines = new ArrayList<Polyline>();
+
+    List<LatLng> list = decodePoly(points);
+    int size = list.size() - 1;
+
+    for (int i = 0; i < size; i++) {
+      LatLng src = list.get(i);
+      LatLng dest = list.get(i + 1);
+
+      int red = getRGB(size, i, startColorR, endColorR);
+      int green = getRGB(size, i, starColorG, endColorG);
+      int blue = getRGB(size, i, starColorB, endColorB);
+
+      line = googleMap.addPolyline(new PolylineOptions()
+          .add(new LatLng(src.latitude, src.longitude),
+              new LatLng(dest.latitude, dest.longitude))
+          .width(9)
+          .color(Color.rgb(red, green, blue))
+          .geodesic(true));
+      polylines.add(line);
+    }
   }
 
 }

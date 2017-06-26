@@ -1,4 +1,5 @@
 *.iml
+koubai.iml
 /local.properties
 /.idea/workspace.xml
 /.idea/libraries
@@ -48,4 +49,5 @@ captures/
 *.jks
 
 .idea/instapk.xml
+.idea/libraries
 instapk.log*
