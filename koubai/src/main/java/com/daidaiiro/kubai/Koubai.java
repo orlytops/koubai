@@ -1,4 +1,4 @@
-package com.oflander.myrtilus.utils;
+package com.daidaiiro.kubai;
 
 import android.graphics.Color;
 
