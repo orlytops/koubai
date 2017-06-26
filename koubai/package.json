@@ -1,0 +1,6 @@
+{
+  "lint": "node_modules/.bin/goodparts path/to/files/for/linting",
+  "devDependencies": {
+    "goodparts": "^1.2.1"
+  }
+}
