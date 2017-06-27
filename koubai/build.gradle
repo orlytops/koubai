@@ -2,8 +2,8 @@ apply plugin: 'com.android.library'
 
 ext {
   PUBLISH_GROUP_ID = 'com.daidaiiro'
-  PUBLISH_ARTIFACT_ID = 'kubai'
-  PUBLISH_VERSION = '1.0.0'
+  PUBLISH_ARTIFACT_ID = 'koubai'
+  PUBLISH_VERSION = '1.0.1'
 }
 
 android {
