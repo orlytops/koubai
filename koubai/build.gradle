@@ -3,7 +3,7 @@ apply plugin: 'com.android.library'
 ext {
   PUBLISH_GROUP_ID = 'com.daidaiiro'
   PUBLISH_ARTIFACT_ID = 'koubai'
-  PUBLISH_VERSION = '1.0.1'
+  PUBLISH_VERSION = '1.0.0'
 }
 
 android {
@@ -38,7 +38,6 @@ dependencies {
   })
   compile 'com.android.support:appcompat-v7:25.3.1'
   testCompile 'junit:junit:4.12'
-
 
   compile 'com.google.android.gms:play-services:10.2.0'
 }
