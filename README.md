@@ -1,6 +1,6 @@
 Koubai
 =======
-[ ![Download](https://api.bintray.com/packages/orlytops/daidaiiro/koubai/images/download.svg) ](https://bintray.com/orlytops/daidaiiro/koubai/_latestVersion) [![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0) [![Build Status](https://travis-ci.org/orlytops/koubai.svg?branch=master)](https://travis-ci.org/orlytops/koubai)
+[ ![Download](https://api.bintray.com/packages/orlytops/daidaiiro/koubai/images/download.svg) ](https://bintray.com/orlytops/daidaiiro/koubai/_latestVersion) [![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0)
 
 An android library for coloring google maps Polylines.
 
@@ -26,8 +26,12 @@ How do I use Kubai?
 Simple as 1-2-3.
 
 ```java
-Kubai kubai = new Kubai(googleMap, points, Color.RED, Color.GREEN);
-kubai.drawGradient();
+ Koubai.with(googleMap)
+     .points(points)
+     .startColor(Color.RED)
+     .endColor(Color.BLUE)
+     .draw();
+
 ```
 
 
