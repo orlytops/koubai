@@ -4,24 +4,24 @@ Koubai
 
 An android library for coloring google maps Polylines.
 
-
+![](sample.png)
 
 Download
 --------
 ```groovy
-compile 'com.daidaiiro:kubai:1.0.0'
+compile 'com.daidaiiro:koubai:1.0.0'
 ```
 or Maven:
 ```xml
 <dependency>
   <groupId>com.daidaiiro</groupId>
-  <artifactId>kubai</artifactId>
+  <artifactId>koubai</artifactId>
   <version>1.0.0</version>
   <type>pom</type>
 </dependency>
 ```
 
-How do I use Kubai?
+How do I use Koubai?
 -------------------
 Simple as 1-2-3.
 
